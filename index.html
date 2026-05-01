@@ -1,15 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Webcam Pontebernardo</title>
-<meta http-equiv="refresh" content="10">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>L'Abrì Ingresso</title>
+
 <style>
-body { margin:0; background:black; text-align:center; }
-img { width:100%; height:auto; }
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #cam {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    display: block;
+  }
 </style>
 </head>
+
 <body>
-<img src="webcam.jpg">
+
+<img src="webcam.jpg" id="cam">
+
+<script>
+setInterval(function() {
+  document.getElementById("cam").src = "webcam.jpg?ts=" + Date.now();
+}, 10000);
+</script>
+
 </body>
 </html>
